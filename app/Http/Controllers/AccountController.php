@@ -116,7 +116,11 @@ class AccountController extends Controller
            $categories = Categories::select(['id','name','image'])->where('is_deleted',0)->limit(6)->get();
 
 
-           //getting from products table based on orderBy selling count to get most selling product on top
+           /*
+                * getting from products table based on orderBy selling count to get most selling 
+                  product on top
+                * Or we can also use rating column for this...
+            */
            $trending_products       = Products::select(['id','name','image','rent'])->where('is_deleted',0)->orderBy('selling_count','desc')->limit(20)->get();
 
            /*
